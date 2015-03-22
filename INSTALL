@@ -9,6 +9,16 @@ Polipo installation instructions
     $ man polipo
     $ polipo &
 
+Note:
+If you get the following error info during 'make install' on ubuntu:
+
+    make: makeinfo: Command not found
+    make: *** [polipo.info] Error 127
+
+You should install package: texinfo by following command:
+
+    $ apt-get install texinfo
+
 If you want Polipo to put itself into the background, you may replace
 the last line with:
 
