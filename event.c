@@ -637,7 +637,7 @@ eventLoop()
             if(exitFlag >= 2) {
                 discardObjects(1, 0);
                 if(exitFlag >= 3) {
-                    do_log_error(L_ERROR, errno, "eventLoop() is terminated because 'exitFlag(%d) >= 3", exitFlag);
+                    do_log_error(L_ERROR, errno, "eventLoop() is terminated because 'exitFlag(%d)' >= 3", exitFlag);
                     return;
                 }
                 free_chunk_arenas();
