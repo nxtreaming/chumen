@@ -1402,7 +1402,7 @@ stringToLabels(char *buf, int offset, int n, char *string)
 static int
 labelsToString(char *buf, int offset, int n, char *d, int m, int *j_return)
 {
-    int i = offset, j, k;
+    int i = offset, j, k = 0;
     int ll, rc;
 
     j = 0;
