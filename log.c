@@ -410,7 +410,7 @@ really_do_log_v(int type, const char *f, va_list args)
 
         if(logF)
         {
-            fprintf(logF, "[%d-%2d-%2d %2d:%2d:%2d] - ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+            fprintf(logF, "[%d-%02d-%02d %02d:%02d:%02d]:", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
             va_copy(args_copy, args);
             vfprintf(logF, f, args_copy);
             va_end(args_copy);
@@ -448,7 +448,7 @@ really_do_log_error_v(int type, int e, const char *f, va_list args)
             es = "Unknown error";
 
         if(logF) {
-            fprintf(logF, "[%d-%2d-%2d %2d:%2d:%2d] - ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+            fprintf(logF, "[%d-%02d-%02d %02d:%02d:%02d]:", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
             va_copy(args_copy, args);
             vfprintf(logF, f, args_copy);
             fprintf(logF, ": %s\n", es);
@@ -486,7 +486,7 @@ really_do_log_n(int type, const char *s, int n)
         time_t t = time(NULL);
         struct tm tm = *localtime(&t);
         if(logF) {
-            fprintf(logF, "[%d-%2d-%2d %2d:%2d:%2d] - ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+            fprintf(logF, "[%d-%02d-%02d %02d:%02d:%02d]:", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
             fwrite(s, n, 1, logF);
         }
 #ifdef HAVE_SYSLOG
